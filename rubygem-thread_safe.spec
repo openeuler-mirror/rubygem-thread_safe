@@ -12,11 +12,13 @@ BuildArch:           noarch
 A collection of data structures and utilities to make thread-safe
 programming in Ruby easier.
 
-%package doc
+%package help
 Summary:             Documentation for %{name}
 Requires:            %{name} = %{version}-%{release}
 BuildArch:           noarch
-%description doc
+Provides:            %{name}-doc = %{version}-%{release}
+Obsoletes:           %{name}-doc < %{version}-%{release}
+%description help
 Documentation for %{name}.
 
 %prep
@@ -53,7 +55,7 @@ rspec -Ilib spec
 %exclude %{gem_cache}
 %{gem_spec}
 
-%files doc
+%files help
 %doc %{gem_docdir}
 %{gem_instdir}/Gemfile
 %doc %{gem_instdir}/README.md
@@ -67,5 +69,5 @@ rspec -Ilib spec
 %{gem_instdir}/yard-template
 
 %changelog
-* Mon Aug 10 2020 yanan li <liyanan032@huawei.com> - 0.3.6-1
-- Package init
+* Sat Aug 22 2020 liyanan <liyanan32@huawei.com> - 0.3.6-1
+- package init
