@@ -1,12 +1,12 @@
 %global gem_name thread_safe
 Name:                rubygem-%{gem_name}
 Version:             0.3.6
-Release:             1
+Release:             2
 Summary:             Thread-safe collections and utilities for Ruby
 License:             ASL 2.0 and Public Domain
 URL:                 https://github.com/ruby-concurrency/thread_safe
 Source0:             https://rubygems.org/gems/thread_safe-%{version}.gem
-BuildRequires:       ruby(release) rubygems-devel ruby rubygem(atomic) rubygem(rspec)
+BuildRequires:       ruby(release) rubygems-devel ruby rubygem(concurrent-ruby) rubygem(rspec)
 BuildArch:           noarch
 %description
 A collection of data structures and utilities to make thread-safe
@@ -69,5 +69,8 @@ rspec -Ilib spec
 %{gem_instdir}/yard-template
 
 %changelog
+* Mon Feb 28 2021 huanghaitao <huanghaitao8@huawei.com> - 0.3.6-2
+- Switch concurrent-ruby to disable atomic
+
 * Sat Aug 22 2020 liyanan <liyanan32@huawei.com> - 0.3.6-1
 - package init
